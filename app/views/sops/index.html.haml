@@ -1,0 +1,28 @@
+#content
+  %nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    .container-fluid
+      %h3 Sop
+      = link_to new_sop_path, class: 'btn btn-primary' do
+        %i.fas.fa-plus
+
+  - if @sops.present?
+    %table.table.table-hover.medium-width
+      %thead
+        %tr
+          %th Name
+          %th Tags
+          %th File
+          %th Category
+          %th
+
+      %tbody
+        - @sops.each do |sop|
+          %tr
+            %td= sop.name
+            %td= sop.tags
+            %td= sop.file_url
+            %td= sop.category.try(:name)
+            %td
+              = link_to 'Edit', edit_sop_path(sop), class: 'badge badge-info'
+              = "/"
+              = link_to 'Delete', sop_path(sop), method: :delete, class: 'badge badge-danger', :data => {confirm: 'Are you sure to delete this sop?'}

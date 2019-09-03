@@ -1,0 +1,8 @@
+.w-50.view-center
+  = simple_form_for @sop do |f|
+    = f.input :name
+    = f.input :tags
+    = f.input :file
+
+    = f.button :submit, class: 'btn btn-primary'
+    = link_to 'Cancel', sops_path, class: 'btn btn-secondary'
