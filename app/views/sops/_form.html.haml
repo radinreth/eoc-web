@@ -2,7 +2,17 @@
   = simple_form_for @sop do |f|
     = f.input :name
     = f.input :tags
+
     = f.input :file
 
-    = f.button :submit, class: 'btn btn-primary'
-    = link_to 'Cancel', sops_path, class: 'btn btn-secondary'
+    - if f.object.file.present?
+      .flex-row
+        = f.hidden_field :remove_file, class: 'destroy'
+        = link_to '#', class: "remove-file", style: f.object.file? ? '' : 'display: none' do
+          %i.far.fa-trash-alt{style: 'color: red; margin-right: 5px'}
+
+        %small.form-text.text-muted= f.object.file_url.split('/').last
+
+    .actions{style: 'margin-top: 30px'}
+      = f.button :submit, class: 'btn btn-primary'
+      = link_to 'Cancel', sops_path, class: 'btn btn-secondary'
