@@ -1,15 +1,16 @@
-- @sops.each do |sop|
+- @sop_highlights.each do |sop_highlight|
+  - sop = SopHighlight.new(sop_highlight)
   %tr
-    %td= sop.name
-    %td= sop.tags
+    %td= sop.name.html_safe
+    %td= sop.tags.try(:html_safe)
     %td
-      - if sop.file.present?
+      - if sop.file_url.present?
         = link_to download_sops_path(file: sop.file_url), target: "_blank", style:'color: #007bff' do
           %span= sop.file_url.split('/').last
           %i.fas.fa-download
 
-    %td= sop.category.try(:name)
+    %td= sop.category_name
     %td
-      = link_to 'Edit', edit_sop_path(sop), class: 'badge badge-info'
+      = link_to 'Edit', edit_sop_path(id: sop.id), class: 'badge badge-info'
       = "/"
-      = link_to 'Delete', sop_path(sop), method: :delete, class: 'badge badge-danger', :data => {confirm: 'Are you sure to delete this sop?'}
+      = link_to 'Delete', sop_path(id: sop.id), method: :delete, class: 'badge badge-danger', :data => {confirm: 'Are you sure to delete this sop?'}

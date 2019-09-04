@@ -1,6 +1,6 @@
 class SopsController < ApplicationController
   def index
-    @sops = Sop.fileter(params)
+    @sop_highlights = Sop.search_highlight(params)
 
     respond_to do |format|
       format.html

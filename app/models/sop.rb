@@ -8,4 +8,10 @@ class Sop < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
   after_commit :remove_file!, on: :destroy
+
+  def self.search_highlight(params)
+    response = self.search(params)
+
+    SopSearchResultPresenter.new(response).results
+  end
 end
