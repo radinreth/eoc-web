@@ -6,6 +6,10 @@ document.addEventListener 'turbolinks:load', ->
   init = ->
     onChangeFile()
     onClickRemoveFile()
+    initTagEditor()
+
+  initTagEditor = ->
+    $('textarea').tagEditor()
 
   onClickRemoveFile = ->
     $('.remove-file').off('click')

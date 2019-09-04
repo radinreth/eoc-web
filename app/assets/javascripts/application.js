@@ -17,4 +17,7 @@
 //= require popper
 //= require bootstrap
 
+//= require jquery.tag-editor.min
+//= require jquery.caret.min
+
 //= require_tree .
