@@ -1,0 +1,15 @@
+- @sops.each do |sop|
+  %tr
+    %td= sop.name
+    %td= sop.tags
+    %td
+      - if sop.file.present?
+        = link_to download_sops_path(file: sop.file_url), target: "_blank", style:'color: #007bff' do
+          %span= sop.file_url.split('/').last
+          %i.fas.fa-download
+
+    %td= sop.category.try(:name)
+    %td
+      = link_to 'Edit', edit_sop_path(sop), class: 'badge badge-info'
+      = "/"
+      = link_to 'Delete', sop_path(sop), method: :delete, class: 'badge badge-danger', :data => {confirm: 'Are you sure to delete this sop?'}

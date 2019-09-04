@@ -1,6 +1,11 @@
 class SopsController < ApplicationController
   def index
-    @sops = Sop.all
+    @sops = Sop.fileter(params)
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show

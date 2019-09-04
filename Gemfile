@@ -38,6 +38,9 @@ gem 'bootstrap',      '~> 4.3.1'
 gem 'simple_form',    '~> 4.1.0'
 gem 'carrierwave',    '~> 2.0'
 
+gem 'elasticsearch-model',        '~> 7.0.0'
+gem 'elasticsearch-rails',        '~> 7.0.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

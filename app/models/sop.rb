@@ -1,4 +1,6 @@
 class Sop < ApplicationRecord
+  include Sops::Searchable
+
   mount_uploader :file, FileUploader
 
   belongs_to :category, optional: true
