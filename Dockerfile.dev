@@ -3,7 +3,7 @@ FROM ruby:2.6
 LABEL maintainer="Sokly <sokly@instedd.org>"
 
 RUN apt-get update -qq && \
-  apt-get install -y nodejs postgresql-client && \
+  apt-get install -y vim nodejs postgresql-client && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
