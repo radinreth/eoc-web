@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Sop.delete_all
+
+20.times.each do |no|
+  Sop.create name: "name #{no}", file: "file-#{no}.pdf", tags: "lorem ipsum #{no}"
+end
+
