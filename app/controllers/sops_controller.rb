@@ -2,9 +2,11 @@ class SopsController < ApplicationController
   def index
     @sop_highlights = Sop.search_highlight(params)
 
+    @search = Sop.__elasticsearch__.search(params['searchText']).records.records
     respond_to do |format|
       format.html
       format.js
+      format.json { render json: @search }
     end
   end
 
