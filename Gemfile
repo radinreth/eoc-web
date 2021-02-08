@@ -42,7 +42,7 @@ gem 'haml-rails',     '~> 2.0'
 gem 'jquery-rails',   '~> 4.3.5'
 gem 'bootstrap',      '~> 4.3.1'
 gem 'simple_form',    '~> 4.1.0'
-gem 'carrierwave',    '~> 2.0'
+gem 'carrierwave',    '~> 2.1'
 
 gem 'elasticsearch-model',        '~> 7.0.0'
 gem 'elasticsearch-rails',        '~> 7.0.0'
